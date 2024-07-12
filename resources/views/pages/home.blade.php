@@ -56,23 +56,23 @@
                 </ul>
             </nav>
             <!-- Button Group -->
-            <div class="amado-btn-group mt-30 mb-100">
+            {{-- <div class="amado-btn-group mt-30 mb-100">
                 <a href="#" class="btn amado-btn mb-15">%Discount%</a>
                 <a href="#" class="btn amado-btn active">New this week</a>
-            </div>
+            </div> --}}
             <!-- Cart Menu -->
-            <div class="cart-fav-search mb-100">
+            {{-- <div class="cart-fav-search mb-100">
                 <a href="cart.html" class="cart-nav"><img src="{{ asset('assets/img/core-img/cart.png') }}" alt=""> Cart <span>(0)</span></a>
                 <a href="#" class="fav-nav"><img src="{{ asset('assets/img/core-img/favorites.png') }}" alt=""> Favourite</a>
                 <a href="#" class="search-nav"><img src="{{ asset('assets/img/core-img/search.png') }}" alt=""> Search</a>
-            </div>
+            </div> --}}
             <!-- Social Button -->
-            <div class="social-info d-flex justify-content-between">
+            {{-- <div class="social-info d-flex justify-content-between">
                 <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </div>
+            </div> --}}
         </header>
         <!-- Header Area End -->
 
@@ -81,20 +81,12 @@
             <div class="amado-pro-catagory clearfix">
 
                 <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('assets/img/bg-img/1.jpg') }}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Modern Chair</h4>
-                        </div>
-                    </a>
-                </div>
+              
+
+                @foreach ($products as $product)
 
                 <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
+                {{-- <div class="single-products-catagory clearfix">
                     <a href="shop.html">
                         <img src="{{ asset('assets/img/bg-img/2.jpg') }}" alt="">
                         <!-- Hover Content -->
@@ -104,102 +96,36 @@
                             <h4>Minimalistic Plant Pot</h4>
                         </div>
                     </a>
-                </div>
+                </div> --}}
 
-                <!-- Single Catagory -->
                 <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('assets/img/bg-img/3.jpg') }}" alt="">
-                        <!-- Hover Content -->
+                    <a href="{{ route('products.show', $product->id) }}">
+                        <img src="{{ $product->image }}" alt="{{ $product->name }}">
                         <div class="hover-content">
                             <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Modern Chair</h4>
+                            <p>From ${{ $product->price }}</p>
+                            <h4>{{ $product->name }}</h4>
                         </div>
                     </a>
                 </div>
 
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('assets/img/bg-img/4.jpg') }}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Night Stand</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('assets/img/bg-img/5.jpg') }}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $18</p>
-                            <h4>Plant Pot</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('assets/img/bg-img/6.jpg') }}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $320</p>
-                            <h4>Small Table</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('assets/img/bg-img/7.jpg') }}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $318</p>
-                            <h4>Metallic Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('assets/img/bg-img/8.jpg') }}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $318</p>
-                            <h4>Modern Rocking Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('assets/img/bg-img/9.jpg') }}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $318</p>
-                            <h4>Home Deco</h4>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
+                
             </div>
+
+            
+            <div class="pagination-wrapper">
+                {{ $products->links('pagination::bootstrap-4') }}
+            </div>
+            
         </div>
         <!-- Product Catagories Area End -->
+
+        
+
     </div>
     <!-- ##### Main Content Wrapper End ##### -->
+
+    
 
 </x-master-layout>

@@ -55,7 +55,7 @@
             </ul>
         </nav>
         <!-- Button Group -->
-        <div class="amado-btn-group mt-30 mb-100">
+        {{-- <div class="amado-btn-group mt-30 mb-100">
             <a href="#" class="btn amado-btn mb-15">%Discount%</a>
             <a href="#" class="btn amado-btn active">New this week</a>
         </div>
@@ -71,7 +71,7 @@
             <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        </div>
+        </div> --}}
     </header>
     <!-- Header Area End -->
 
@@ -93,7 +93,8 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-lg-7">
+
+                {{-- <div class="col-12 col-lg-7">
                     <div class="single_product_thumb">
                         <div id="product_details_slider" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -130,15 +131,31 @@
                             </div>
                         </div>
                     </div>
+                </div> --}}
+
+                <div class="col-12 col-lg-7">
+                    <div class="single_product_thumb">
+                        <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a class="gallery_img" href="{{ $product->image }}">
+                                        <img class="d-block w-100" src="{{ $product->image }}" alt="{{ $product->name }}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
                 <div class="col-12 col-lg-5">
                     <div class="single_product_desc">
                         <!-- Product Meta Data -->
                         <div class="product-meta-data">
                             <div class="line"></div>
-                            <p class="product-price">$180</p>
+                            <p class="product-price">${{ $product->price }}</p>
                             <a href="product-details.html">
-                                <h6>White Modern Chair</h6>
+                                <h6>{{ $product->name }}</h6>
                             </a>
                             <!-- Ratings & Review -->
                             <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
@@ -158,7 +175,7 @@
                         </div>
 
                         <div class="short_overview my-5">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?</p>
+                            <p>{{ $product->description }}</p>
                         </div>
 
                         <!-- Add to Cart Form -->

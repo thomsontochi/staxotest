@@ -18,10 +18,23 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $images = [
+            '/assets/img/bg-img/1.jpg',
+            '/assets/img/bg-img/2.jpg',
+            '/assets/img/bg-img/3.jpg',
+            '/assets/img/bg-img/4.jpg',
+            '/assets/img/bg-img/5.jpg',
+            '/assets/img/bg-img/6.jpg',
+            '/assets/img/bg-img/7.jpg',
+            '/assets/img/bg-img/8.jpg',
+            '/assets/img/bg-img/9.jpg',
+        ];
         return [
-            'image' => $this->faker->imageUrl(640, 480, 'products', true),
+            // 'image' => $this->faker->imageUrl(640, 480, 'products', true),
+            'image' => $this->faker->randomElement($images),
             'name' => $this->faker->word,
             'price' => $this->faker->randomFloat(2, 10, 1000),
+            'description' => $this->faker->text,
         ];
     }
 }
