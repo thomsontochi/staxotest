@@ -19,15 +19,16 @@ class ProductController extends Controller
         return view('pages.products.productDetails', compact('product'));
     }
 
-    public function manage()
-    {
-        $products = Product::all();
-        return view('products.manage', compact('products'));
-    }
+    // public function index()
+    // {
+    //     $products = Product::all();
+    //     return view('products.index', compact('products'));
+    // }
 
     public function create()
     {
-        return view('products.form');
+        dd('i want to create');
+        return view('auth.products.form');
     }
 
     public function store(Request $request)
@@ -39,26 +40,33 @@ class ProductController extends Controller
         ]);
 
         Product::create($request->all());
-        return redirect()->route('products.manage');
+        return redirect()->route('products.index');
     }
 
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('products.form', compact('product'));
+        return view('auth.products.form', compact('product'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         $request->validate([
-            'image' => 'required|url',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
         ]);
+            dd($request);
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();  
+            $request->image->move(public_path('assets/img/product-img'), $imageName);
+            $product->image = $imageName;
+        }
 
-        $product = Product::findOrFail($id);
-        $product->update($request->all());
-        return redirect()->route('products.manage');
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->save();
+
     }
 
     public function destroy($id)
