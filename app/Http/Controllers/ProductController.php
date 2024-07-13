@@ -9,8 +9,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('products.index', compact('products'));
+        $products = Product::paginate(10);
+        return view('auth.products.index', compact('products'));
     }
 
     public function show($id)
@@ -64,7 +64,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
+        // dd($product);
         $product->delete();
-        return redirect()->route('products.manage');
+        return redirect()->route('products.index');
     }
 }

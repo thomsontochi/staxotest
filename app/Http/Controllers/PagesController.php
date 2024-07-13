@@ -13,4 +13,10 @@ class PagesController extends Controller
         // return view('products.index', compact('products'));
         return view('pages.home', compact('products'));
     }
+
+    public function productDetails($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('pages.products.productDetails', compact('product'));
+    }
 }
