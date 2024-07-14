@@ -46,10 +46,9 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mt-50">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Furniture</a></li>
-                            <li class="breadcrumb-item"><a href="#">Chairs</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">white modern chair</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                          
+                            <li class="breadcrumb-item active" aria-current="page">{{$product->name}}</li>
                         </ol>
                     </nav>
                 </div>
@@ -101,8 +100,8 @@
                         <div id="product_details_slider" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <a class="gallery_img" href="{{ $product->image }}">
-                                        <img class="d-block w-100" src="{{ $product->image }}" alt="{{ $product->name }}">
+                                    <a class="gallery_img" href="{{  asset('assets/img/bg-img/' . $product->image) }}">
+                                        <img class="d-block w-100" src="{{ asset('assets/img/bg-img/' . $product->image) }}" alt="{{ $product->name }}">
                                     </a>
                                 </div>
                             </div>

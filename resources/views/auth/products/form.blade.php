@@ -20,7 +20,7 @@
                                 <x-label for="image" :value="__('Image')" />
                                 <x-input id="image" class="block mt-1 w-full" type="file" name="image" />
                                 @if (isset($product) && $product->image)
-                                    <img src="{{ asset( $product->image) }}" alt="{{ $product->name }}" class="mt-2 w-32 h-32 object-cover">
+                                    <img src="{{ asset( 'assets/img/bg-img/'.$product->image) }}" alt="{{ $product->name }}" class="mt-2 w-32 h-32 object-cover">
                                 @endif
                             </div>
 

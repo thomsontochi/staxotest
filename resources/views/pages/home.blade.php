@@ -48,21 +48,10 @@
 
                 @foreach ($products as $product)
 
-                <!-- Single Catagory -->
-                {{-- <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('assets/img/bg-img/2.jpg') }}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Minimalistic Plant Pot</h4>
-                        </div>
-                    </a>
-                </div> --}}
+             
 
                 <div class="single-products-catagory clearfix">
-                    <a href="{{ route('productDetails', $product->id) }}">
+                    <a href="{{ $product->id }}">
                         <img src="{{ asset('/assets/img/bg-img/' . $product->image) }}" alt="{{ $product->name }}">
                         <div class="hover-content">
                             <div class="line"></div>

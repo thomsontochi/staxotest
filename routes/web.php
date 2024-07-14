@@ -37,7 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware('web')->group(function () {
     Route::get('/', [PagesController::class, 'home'])->name('home');
-    Route::get('/products/{id}', [PagesController::class, 'productDetails'])->name('productDetails');
+    Route::get('/{id}', [PagesController::class, 'productDetails'])->name('productDetails');
 });
 
 

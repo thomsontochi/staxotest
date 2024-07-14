@@ -19,6 +19,7 @@ class ProductController extends Controller
         return view('auth.products.form');
     }
 
+
     public function store(Request $request)
     {
         $request->validate([
