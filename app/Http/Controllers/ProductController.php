@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(10); // Adjust the number of products per page as needed
+        $products = Product::orderBy('created_at', 'desc')->paginate(10); // Adjust the number of products per page as needed
         return view('auth.products.index', compact('products'));
     }
 
@@ -28,7 +28,7 @@ class ProductController extends Controller
         ]);
 
         $imageName = time().'.'.$request->image->extension();  
-        $request->image->move(public_path('assets/img/product-img'), $imageName);
+        $request->image->move(public_path('assets/img/bg-img'), $imageName);
 
         Product::create([
             'image' => $imageName,
