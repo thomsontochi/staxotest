@@ -63,7 +63,7 @@
 
                 <div class="single-products-catagory clearfix">
                     <a href="{{ route('productDetails', $product->id) }}">
-                        <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                        <img src="{{ asset('assets/img/bg-img/' . $product->image) }}" alt="{{ $product->name }}">
                         <div class="hover-content">
                             <div class="line"></div>
                             <p>From ${{ $product->price }}</p>
