@@ -104,7 +104,8 @@
                     console.error(result.error.message);
                 } else {
                     if (result.paymentIntent.status === 'succeeded') {
-                        window.location.href = '{{ route('thankYou', ['email' => $email]) }}';
+                        // window.location.href = '{{ route('thankYou', ['email' => $email]) }}';
+                        window.location.href = '{{ route('thankYou') }}' + '?email=' + document.getElementById('email').value + '&product_id=' + {{ $product->id }};
                     }
                 }
             });
