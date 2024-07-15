@@ -141,7 +141,7 @@
                         </div>
 
                         <!-- Add to Cart Form -->
-                        <form class="cart clearfix" method="post">
+                        <div class="cart clearfix">
                             <div class="cart-btn d-flex mb-50">
                                 <p>Qty</p>
                                 <div class="quantity">
@@ -150,8 +150,11 @@
                                     <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                                 </div>
                             </div>
-                            <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button>
-                        </form>
+                            <form action="{{ route('products.buy', $product->id) }}" method="get">
+                                @csrf
+                                <button type="submit" class="btn amado-btn">Buy</button>
+                            </form>
+                        </div>
 
                     </div>
                 </div>

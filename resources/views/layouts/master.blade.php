@@ -57,7 +57,7 @@
                                 <div class="collapse navbar-collapse" id="footerNavContent">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="index.html">Home</a>
+                                            <a class="nav-link" href="{{ route('home') }}">Home</a>
                                         </li>
                                         {{-- <li class="nav-item">
                                             <a class="nav-link" href="shop.html">Shop</a>
